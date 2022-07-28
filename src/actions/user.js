@@ -44,3 +44,14 @@ export const getUser = (id) => async(dispatch)=>{
         console.log(err);
     }
 }
+
+export const updateUserStatus = (id , user) => async(dispatch)=>{
+    try{
+        const {data} = await api.updateUserStatus(id , user);
+        console.log(data);
+        dispatch({ type: UPDATE_USER , payload: data });
+        alert("Update successfull...");
+    }catch(err){
+        console.log(err);
+    }
+};

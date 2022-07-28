@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import './Profile.css';
 import UpdateProfileModel from "../components/models/UserModels/UpdateProfileModel";
+import Footer from "../components/footer/Footer";
 
 const Profile = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -55,15 +56,15 @@ const Profile = () => {
                 <div className="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div className="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">{user2?.data?.firstname} {user2?.data?.lastname}</h4>
-                    <p className="mb-0">@fullname.edu</p>
+                    <p className="mb-0">@{user2?.data?.firstname} {user2?.data?.lastname}.edu</p>
                     <div className="text-muted"><small>Last seen 2 hours ago</small></div>
                     <div className="mt-2">
                      
                     </div>
                   </div>
                   <div className="text-center text-sm-right">
-                    <span className="badge badge-secondary">Student</span>
-                    <div className="text-muted"><small>timestamp</small></div>
+                    <span className="badge badge-secondary">{user2?.data?.firstname === "admin" ? "Admin": "Student"}</span>
+                    <div className="text-muted"><small></small></div>
                   </div>
                 </div>
               </div>
@@ -154,7 +155,7 @@ const Profile = () => {
             <div className="px-xl-3">
               <button className="btn btn-block btn-secondary">
                 <i className="fa fa-sign-out"></i>
-                <span>Logout</span>
+                <span>Change Password</span>
               </button>
             </div>
           </div>
@@ -171,6 +172,9 @@ const Profile = () => {
 
     
      
+    </div>
+    <div style={{marginTop: '200px'}}>
+      <Footer />
     </div>
     
     </div>

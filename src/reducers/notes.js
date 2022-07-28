@@ -6,8 +6,8 @@ const notesReducer = (state =  [] , action) => {
         return {
           ...state,
           notes: action.payload.data,
-          currentPage: action.payload.currentPage,
-          numberOfPages: action.payload.numberOfPages,
+          currentPage: action.payload.data.currentPage,
+          numberOfPages: action.payload.data.numberOfPages,
          }; 
     case CREATE_NOTES:
       return [...state , action.payload];

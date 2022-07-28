@@ -46,7 +46,7 @@ const UpdateProfileModel = ({user}) => {
 
 const handleSubmit = (e) =>{
     e.preventDefault();
-    if(mobile.length > 10){
+    if(mobile.length > 10 || mobile.length < 10){
         alert("Invalied Phone Number.....(Phone Number Must Contains 10 numbers)");
     }else{
         dispatch(updateUser(user._id ,{firstname , lastname , email , dateOfBirth , mobile  , accountType}));
@@ -176,13 +176,13 @@ const clear =()=>{
       style={{width :  "570px"}}
       required
     >
-        <option value = "Select panel">
+         <option value = "Select panel">
         Select Account
       </option>
-      <option value = "panel 1">
+      <option value = "Personel Account">
       Personel Account
       </option>
-      <option value = "panel 2">
+      <option value = " Student Account">
       Student Account
       </option>
      

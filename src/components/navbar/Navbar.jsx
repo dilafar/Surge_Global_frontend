@@ -12,7 +12,7 @@ import {
 
 } from "@mui/material";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+import {updateUserStatus} from '../../actions/user'
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import * as actionType  from '../../constants/actionTypes';
@@ -82,19 +82,22 @@ const MenuItem2 = styled.div`
 `;
 
 const Navbar = () => {
+  
   const location = useLocation();
   
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const [state , setstate] = useState(false);
   const [adminNav , setadminNav] = useState(false);
+  const [id , setid] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [status ,setstatus] = useState(false);
 
  
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
-
+      dispatch(updateUserStatus(id ,{status}));
+    
     navigate("/");
 
     setUser(null);
@@ -124,8 +127,11 @@ const open2 =()=>{
     const token = user?.result;
 
     if (token) {
-      console.log(token);
-      
+      console.log(token.firstname);
+      if(token.firstname === "admin"){
+        setadminNav(true);
+      }
+      setid(token._id);
       
     }
 
@@ -147,22 +153,39 @@ const open2 =()=>{
         </Center>
         <Right>
         <MenuItem2><Button  component={Link} to="/" variant="contained"> Home</Button></MenuItem2>
-      
+       { user && (
+        <>
+        {adminNav && (
+          <>
          
-        
-        
-         
-        
+        <MenuItem2><Button  component={Link} to="/user" variant="contained">Admin</Button></MenuItem2>
+        </>
+          )}
+          </>
+          )}
+
+      { user && (
+              <>
+         {!adminNav && (
+          <>
+        <MenuItem2><Button  component={Link} to="/notes" variant="contained">Notes</Button></MenuItem2>
+        </>
+          )}
+           </>
+          )}
       
-        
-          <MenuItem2><Button variant="contained"  onClick={logout}> LOGOUT </Button></MenuItem2>
-            <MenuItem2><Button component={Link} to="/Auth" variant="contained"> SIGN IN </Button></MenuItem2>
+        { user ? (
+          <MenuItem2><Button variant="contained"  onClick={logout}> LOGOUT </Button></MenuItem2>):(
+            <MenuItem2><Button component={Link} to="/Auth" variant="contained"> SIGN IN </Button></MenuItem2>)}
           
+          {user && (
+          <>
           <MenuItem2>
           <Button component={Link} to="/profile"  startIcon={<AccountCircleIcon />} variant="contained"> Profile </Button>
             
           </MenuItem2>
-         
+          </>
+          )}
          
          
         </Right>

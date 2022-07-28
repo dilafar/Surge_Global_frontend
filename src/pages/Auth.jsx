@@ -20,7 +20,7 @@ const Auth = () => {
   const [password , setpassword] = useState('');
   const [confirmpassword , setconfirmpassword] = useState('');
   const [accountType , setaccountType] = useState('');
-  const [status , setStatus] = useState(false);
+  const [status , setStatus] = useState(true);
  
   const [ph , setph] = useState(false);
   const [em , setem] = useState(false);
@@ -43,7 +43,7 @@ const Auth = () => {
               if(password !== confirmpassword){
                   alert("Password Miss Match");
             
-              }else if(mobile.length > 10){
+              }else if(mobile.length > 10 || mobile.length < 10){
                 alert("Invalied Phone Number.....(Phone Number Must Contains 10 numbers)");
                 
               }else{
@@ -75,6 +75,7 @@ const Auth = () => {
     setph(false);
   }
   return (
+    
     <div style={{backgroundImage : `url(${sideimage})` , backgroundSize: 'cover' , paddingBottom : '400px'}}>
       <div  className="shadow p-3 mb-5 bg-white rounded" >
         <Navbar />
@@ -213,10 +214,10 @@ const Auth = () => {
         <option value = "Select panel">
         Select Account
       </option>
-      <option value = "panel 1">
+      <option value = "Personel Account">
       Personel Account
       </option>
-      <option value = "panel 2">
+      <option value = " Student Account">
       Student Account
       </option>
      

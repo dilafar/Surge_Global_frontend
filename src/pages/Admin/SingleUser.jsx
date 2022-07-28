@@ -35,19 +35,19 @@ const SingleUser = ({user}) => {
     <>
     <tr >
     
-    				<td onClick={handleOpen}>ID0001</td>
-    				<td onClick={handleOpen}>ahamed Fadhil</td>
-    				<td onClick={handleOpen}>fadhilahamed07@gmail.com</td>
+    				<td onClick={handleOpen}>{user?._id}</td>
+    				<td onClick={handleOpen}>{user?.firstname} {user?.lastname}</td>
+    				<td onClick={handleOpen}>{user?.email}</td>
     				<td onClick={handleOpen}>
-                    18-05-2014
+            {user?.dateOfBirth}
     				</td >
-    				<td onClick={handleOpen}>0770567366</td>
-    				<td onClick={handleOpen}>Personal Account</td>
-    				<td onClick={handleOpen}><span>pending</span></td>
+    				<td onClick={handleOpen}>{user?.mobile}</td>
+    				<td onClick={handleOpen}>{user?.accountType}</td>
+    				<td onClick={handleOpen}>{JSON.stringify(user?.status)}</td>
           
                     <td>
                     <div style={{display:"flex" }}>
-        <UpdateModel/> <DeleteUserModel user={user}/>
+        <DeleteUserModel user={user}/>
         </div>
 
                     </td>
@@ -74,13 +74,13 @@ const SingleUser = ({user}) => {
                           <div  className="col">
                             <div  className="form-group">
                               <label>First Name</label>
-                              <p>xxxxxxxxxxxxxxxxx</p>
+                              <p>{user?.firstname}</p>
                             </div>
                           </div>
                           <div  className="col">
                             <div  className="form-group">
                               <label>Last Name</label>
-                              <p>xxxxxxxxxxxxx</p>
+                              <p>{user?.lastname}</p>
                             </div>
                           </div>
                         </div>
@@ -90,7 +90,7 @@ const SingleUser = ({user}) => {
                           <div  className="col">
                             <div  className="form-group">
                               <label>Email</label>
-                              <p>xxxxxxxxxxxxxxx</p>
+                              <p>{user?.email}</p>
                             </div>
                           </div>
                         </div>
@@ -98,7 +98,7 @@ const SingleUser = ({user}) => {
                           <div  className="col mb-3">
                             <div className="form-group">
                               <label>Contact Number</label>
-                              <p>xxxxxxxx</p>
+                              <p>{user?.mobile}</p>
                             </div>
                           </div>
                         </div>
@@ -106,7 +106,7 @@ const SingleUser = ({user}) => {
                           <div  className="col mb-3">
                             <div className="form-group">
                               <label>Date Of Birth</label>
-                              <p>xxxxxxx</p>
+                              <p>{user?.dateOfBirth}</p>
                             </div>
                           </div>
                         </div>
@@ -114,7 +114,7 @@ const SingleUser = ({user}) => {
                           <div  className="col">
                             <div  className="form-group">
                               <label>Account Type</label>
-                              <p>xxxxxx</p>
+                              <p>{user?.accountType}</p>
                             </div>
                           </div>
                         </div>

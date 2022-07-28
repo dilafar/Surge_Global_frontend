@@ -51,7 +51,7 @@ const clear =()=>{
     <div>
       
       
-      <Button color="primary"  variant="contained"  startIcon={<AddIcon />} onClick={handleOpen} style={{marginLeft: "1150px" , marginBottom: "10px"}}>Add Notes</Button>
+      <Button color="primary"  variant="contained"  startIcon={<AddIcon />} onClick={handleOpen} style={{marginLeft: "1150px" , marginBottom: "20px" , marginTop: "20px"}}>Add Notes</Button>
       <Modal
         open={open}
         onClose={handleClose}

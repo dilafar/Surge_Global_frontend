@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import Navbar from '../../components/navbar/Navbar';
 import './Users.css';
 import '../Student/Notes.css';
@@ -8,6 +8,8 @@ import {useLocation} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import UsersPagination from '../../components/paginations/UsersPagination';
 import { lightGreen } from '@mui/material/colors';
+import Footer from '../../components/footer/Footer';
+import { CircularProgress, Grid } from "@material-ui/core";
 
 
 function useQuery(){
@@ -16,6 +18,7 @@ function useQuery(){
 
 const Users = () => {
     const dispatch = useDispatch();
+    const [search , setsearch] = useState('');
     const query = useQuery();
     const page = query.get('page') || 1 ;
     const {users} = useSelector((state) => state.user);
@@ -30,7 +33,7 @@ const Users = () => {
               
                   <form action="#">
                     <div className="form-group d-flex search-field">
-                      <input type="text" className="form-control" placeholder="Search Here" />
+                      <input type="text" className="form-control" placeholder="Search Here" onChange={(e)=> setsearch(e.target.value)} />
                       <button type="submit" className="btn btn-primary ml-3">Search</button>
                     </div>
                   </form>
@@ -55,13 +58,23 @@ const Users = () => {
     			</tr>
     		</thead>
     		<tbody>
-    { users?.data?.map((user)=>(
+        {!users?.data?.length && (<> <div className='col-lg-12 col-md-12 col-xl-12'><div className='alert alert-info' role="alert"><h4>Users Not Found !</h4><p>No Users Were Registered !!!.</p></div></div>
+           </>
+           )}
+        {!users?.data?.length ? <CircularProgress/> : (
+     users?.data?.filter((val)=>{
+      if(search == ""){
+        return val;
+      }else if(val.firstname.toLowerCase().includes(search.toLowerCase())){
+        return val;
+      }
+    }).map((user)=>(
     			<SingleUser key={user._id}  user={user}/>
     			
-    			))}
+    			))
     			
-    				
-    				
+      )}
+          		
     		</tbody>
     	</table>
     
@@ -70,6 +83,8 @@ const Users = () => {
 <div style={{marginLeft: '480px'}}>
 <UsersPagination  page={page}/>
 </div>
+<div style={{marginTop: '200px'}}>
+<Footer /></div>
 </>
   )
 }

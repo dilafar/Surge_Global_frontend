@@ -41,7 +41,7 @@ const DeleteUserModel = ({user}) => {
     >
       <Box sx={style}>
       <div className="modal-header bg-danger text-white">
-          <h5 className="modal-title" id="deleteModalLabel">Delete Notes</h5>
+          <h5 className="modal-title" id="deleteModalLabel">Delete User</h5>
           
         </div>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
