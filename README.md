@@ -6,7 +6,7 @@ Registered User List displayed in Admin Dashboard with pagination
 Student can Add,Update,Delete Notes 
 Student can Search Notes According to the title
 Student can View Student Profile , Update Student Profile
-Perticular Loged In students Notes desplayed in Student Dashboard with pagination
+Perticular Loged In students Notes desplayed in Student Dashboard with pagination.
 
 
 1. Clone the repository
