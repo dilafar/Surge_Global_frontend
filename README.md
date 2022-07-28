@@ -13,6 +13,12 @@ if yore using yarn then ,
 
 yarn add
 
+if using Docker then ,
+
+docker-compose up -d --build
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
