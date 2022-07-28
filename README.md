@@ -1,4 +1,14 @@
 # Getting Started with Create React App
+
+Admin can manage users , view user Details
+Admin can Search user According to the name
+Registered User List displayed in Admin Dashboard with pagination
+Student can Add,Update,Delete Notes 
+Student can Search Notes According to the title
+Student can View Student Profile , Update Student Profile
+Perticular Loged In students Notes desplayed in Student Dashboard with pagination
+
+
 1. Clone the repository
 
 git clone https://github.com/dilafar/Surge_Global_frontend.git
@@ -17,7 +27,12 @@ git clone https://github.com/dilafar/Surge_Global_frontend.git
 
         docker-compose up -d --build
 
+3.Admin Credintials,
 
+        email = admin@gmail.com
+        
+        password = admin123
+        
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
