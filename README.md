@@ -1,4 +1,17 @@
 # Getting Started with Create React App
+1. Clone the repository
+
+git clone https://github.com/dilafar/Surge_Global_frontend.git
+
+2. install relevent dependencies
+
+if youre using npm then ,
+
+npm install
+
+if yore using yarn then ,
+
+yarn add
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
