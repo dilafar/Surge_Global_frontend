@@ -5,13 +5,19 @@ git clone https://github.com/dilafar/Surge_Global_frontend.git
 
 2. install relevent dependencies
 
-if youre using npm then ,
+    if youre using npm then ,
 
-npm install
+        npm install
 
-if yore using yarn then ,
+    if yore using yarn then ,
 
-yarn add
+        yarn add
+
+    if using Docker then ,
+
+        docker-compose up -d --build
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
