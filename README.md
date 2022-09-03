@@ -11,7 +11,6 @@ Perticular Loged In students Notes desplayed in Student Dashboard with paginatio
 
 1. Clone the repository
 
-git clone https://github.com/dilafar/Surge_Global_frontend.git
 
 2. install relevent dependencies
 
